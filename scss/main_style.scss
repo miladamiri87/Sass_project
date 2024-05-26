@@ -1,0 +1,489 @@
+$color_primary: white;
+$colo_secondary: rgb(182, 182, 182);
+$colo_hover: rgb(227, 166, 0);
+
+$transition_hover_color: all 1s;
+
+$font_title: "Danceing Script", cursive;
+$font_body: "Josefin Sans", sans-serif;
+$font_titile2: "Nunito Sans", sans-serif;
+
+@mixin hover_color {
+  color: $colo_hover;
+  transition: $transition_hover_color;
+}
+
+@mixin btn_transition {
+  position: relative;
+  .btn_collection {
+    cursor: pointer;
+    position: absolute;
+    width: 130px;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    bottom: 10px;
+    left: 10px;
+    padding: 1rem 2rem;
+    background-color: $color_primary;
+    font-family: $font_body;
+    font-size: 0.9rem;
+    &:hover {
+      width: 180px;
+      transition: $transition_hover_color;
+    }
+    .btn_collection_title {
+      margin-right: 2rem;
+    }
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu_container {
+  background-image: url(../assets/image/section1_menu/background-1.jpg);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  opacity: 0.9;
+  color: $colo_secondary;
+  display: flex;
+  flex-direction: column;
+  font-family: $font_titile2;
+  font-size: 20px;
+  position: sticky;
+
+  .menu_list_container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    padding: 2rem 0 2rem 0;
+    background-color: rgba(0, 0, 0, 0.404);
+
+    .menu_list_left {
+      display: flex;
+      justify-content: space-between;
+      width: 20%;
+      cursor: pointer;
+      font-size: 15px;
+      padding-left: 2rem;
+
+      .sub_menu_list_left {
+        &:hover {
+          @include hover_color();
+        }
+      }
+    }
+    .menu_list_middle {
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      font-size: 30px;
+      color: $color_primary;
+      cursor: pointer;
+    }
+    .menu_list_right {
+      display: flex;
+      width: 15%;
+      justify-content: space-around;
+      cursor: pointer;
+      font-size: 15px;
+      padding-right: 2rem;
+
+      .sub_menu_list_right {
+        padding-right: 1rem;
+
+        &:hover {
+          @include hover_color();
+        }
+      }
+
+      .cart_container {
+        display: flex;
+        .cart_border {
+          width: 1rem;
+
+          border: 1px solid $colo_secondary;
+          padding: 0.5rem;
+          &:hover {
+            @include hover_color();
+          }
+        }
+      }
+    }
+  }
+  .new_product_container {
+    font-family: $font_title;
+    position: absolute;
+    top: 15rem;
+    left: 12rem;
+    color: $color_primary;
+    font-size: 2rem;
+    h1 {
+      margin: 0;
+    }
+    .btn_ {
+      background-color: $color_primary;
+      color: black;
+      padding: 0 1rem;
+      height: 60px;
+      width: 140px;
+      display: flex;
+      align-items: center;
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      &:hover {
+        width: 165px;
+        transition: $transition_hover_color;
+      }
+      .btn_arrow {
+        visibility: hidden;
+        &:hover {
+          visibility: visible;
+        }
+      }
+    }
+  }
+  .btn_circle_container {
+    position: absolute;
+    color: black;
+    display: flex;
+    bottom: 50px;
+    right: 100px;
+
+    .circle_btn_arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: $color_primary;
+
+      cursor: pointer;
+      &:hover {
+        @include hover_color();
+      }
+    }
+  }
+}
+
+.container_products {
+  margin-top: 5rem;
+  font-family: $font_titile2;
+  font-size: 3rem;
+  width: 100%;
+
+  .title_products {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .sub_title_products {
+      font-family: $font_title;
+      font-size: 0.8rem;
+      display: flex;
+      gap: 1rem;
+      color: $colo_secondary;
+      cursor: pointer;
+      .active_sub_title {
+        color: black;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+  .container_card_products {
+    width: 100%;
+    padding: 3rem 7rem;
+    .container_card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      // width: 100%;
+
+      .card {
+        width: 350px;
+        margin: 1rem;
+
+        .img_card {
+          width: 100%;
+        }
+        .img_card_hover {
+          width: 100%;
+          display: none;
+        }
+        .title_product_like {
+          display: flex;
+          font-size: 1rem;
+          align-items: center;
+          justify-content: space-between;
+          .bx-heart {
+            cursor: pointer;
+            &:hover {
+              @include hover_color();
+            }
+          }
+        }
+        .price_addcart {
+          margin-top: 1rem;
+          display: flex;
+          font-size: 1rem;
+          align-items: center;
+          justify-content: space-between;
+          .add_to_cart {
+            cursor: pointer;
+            &:hover {
+              @include hover_color();
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn_load_more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font_body;
+    font-size: 1rem;
+    color: $colo_secondary;
+    .btn_borderless {
+      padding: 1rem 2.5rem;
+      border: 1px solid $colo_secondary;
+      cursor: pointer;
+      margin-bottom: 7rem;
+      &:hover {
+        @include hover_color();
+      }
+    }
+  }
+}
+
+.container_collection {
+  background-color: #3b416b;
+  // height: 100vh;
+  width: 100%;
+  .part_1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5rem 10rem 2rem 10rem;
+
+    .title_collection {
+      color: $color_primary;
+      font-family: $font_title;
+      font-size: 3rem;
+    }
+    .body_collection {
+      width: 30rem;
+      color: $colo_secondary;
+      font-family: $font_titile2;
+      font-size: 1rem;
+    }
+  }
+  .part_2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5rem 10rem 2rem 10rem;
+
+    .container_img_left {
+      background-image: url(../assets/image/section3-look/look-1.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 48%;
+      height: 100vh;
+      @include btn_transition();
+
+      cursor: pointer;
+      &:hover {
+        background-position: -10px;
+        transition: $transition_hover_color;
+      }
+    }
+    .container_img_right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 48%;
+
+      .container_img_right_top {
+        background-image: url(../assets/image/section3-look/look-2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        width: 100%;
+        height: 48vh;
+        @include btn_transition();
+
+        cursor: pointer;
+        &:hover {
+          background-position: -10px;
+          transition: $transition_hover_color;
+        }
+      }
+      .container_img_right_button {
+        background-image: url(../assets/image/section3-look/look-3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        width: 100%;
+        height: 48vh;
+        @include btn_transition();
+        cursor: pointer;
+        &:hover {
+          background-position: -10px;
+          transition: $transition_hover_color;
+        }
+      }
+    }
+  }
+}
+
+.container_pasts_sliders {
+  margin-top: 5rem;
+  .title_products {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15rem;
+    font-family: $font_titile2;
+    font-size: 3rem;
+    .sub_title_products {
+      display: flex;
+      color: $colo_hover;
+      font-size: 1rem;
+    }
+  }
+  .container_post {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 15rem;
+    justify-content: space-between;
+
+    .card {
+      margin-top: 3rem;
+      width: 300px;
+      font-family: $font_title;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      .img_card {
+        width: 100%;
+        height: 100%;
+      }
+      .gray {
+        color: $colo_secondary;
+        font-size: 0.8rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+.footer_container {
+  width: 100%;
+  background-color: black;
+  color: $colo_secondary;
+  font-family: $font_titile2;
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 12rem;
+  .footer_left {
+    width: 48%;
+    .footer_body {
+      margin-bottom: 2rem;
+      width: 80%;
+      font-size: 16px;
+      line-height: 2rem;
+      span {
+        color: $color_primary;
+      }
+    }
+    .quick_link_title {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+    .container_quick_link {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 60%;
+      p {
+        display: flex;
+        line-height: 1.7rem;
+        padding-top: 1.5rem;
+        cursor: pointer;
+        &:hover {
+          @include hover_color();
+        }
+      }
+    }
+  }
+  .footer_right {
+    width: 48%;
+    display: flex;
+    // justify-content: space-between;
+    flex-direction: column;
+    .search_footer {
+      width: 100%;
+      position: relative;
+      margin-bottom: 3rem;
+
+      input {
+        background-color: #3b416b00;
+        padding-left: 1rem;
+        width: 100%;
+        height: 4rem;
+        border: 1px solid rgb(255, 255, 255);
+      }
+      .btn_search_input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 0 3rem;
+        color: black;
+        background-color: $color_primary;
+        cursor: pointer;
+        &:hover {
+          color: $colo_hover;
+          transition: $transition_hover_color;
+        }
+      }
+    }
+    .gray {
+      color: $colo_secondary;
+      font-size: 16px;
+      margin-bottom: 3rem;
+    }
+    .social_media {
+      display: flex;
+      flex-direction: column;
+      line-height: 2rem;
+      div i {
+        font-size: 1.2rem;
+        color: $colo_secondary;
+        &:hover {
+          cursor: pointer;
+          font-size: 1.4rem;
+          color: $color_primary;
+          transition: all 0.6s;
+        }
+      }
+      .follow {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
